@@ -5,20 +5,51 @@ import task.models.MediumBox;
 import task.models.MicroBox;
 import task.models.SmallBox;
 
-public class Generics {
+import java.util.ArrayList;
+import java.util.List;
 
+public class Generics<T extends BigBox> {
 
   public static void main(String[] args) {
+    Generics generics = new Generics();
+
+    generics.addBox(generateMediumBox());
+    generics.print(generateMediumBox());
+    generics.availability(generatMicroBox());
+  }
+
+  List<BigBox> producer = new ArrayList<>();
+
+
+  List<BigBox> consumer = new ArrayList<>();
+
+  //TODO: реализуйте Метод для проверки наличия коробки в списке (Producer).
+
+  public void availability(T t) {
+    System.out.println(producer.contains(t));
+  }
+
+  //TODO: реализуйте Метод для добавления коробок в список (Consumer)
+  public void addBox(T t) {
+    consumer.add(t);
+    System.out.println(consumer);
+  }
+
+  //TODO: реализуйте Метод для печати списка коробок (Producer)
+  public void print(T t) {
+    ;
+    for (BigBox b : producer) {
+      System.out.println(b + " ");
+    }
+  }
+
+
+  //TODO: реализуйте Метод для копирования коробок из одного списка в другой (Producer и Consumer)
+  public void addAll() {
+    producer.addAll(consumer);
 
   }
 
-  //TODO: реализуйте Метод для проверки наличия коробки в списке (Producer)
-
-  //TODO: реализуйте Метод для добавления коробок в список (Consumer)
-
-  //TODO: реализуйте Метод для печати списка коробок (Producer)
-
-  //TODO: реализуйте Метод для копирования коробок из одного списка в другой (Producer и Consumer)
 
   private static BigBox generateBigBox() {
     BigBox bigBox = new BigBox();
